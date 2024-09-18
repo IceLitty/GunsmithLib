@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "mod.chloeprime.gunsmithlib.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "gunsmithlib.refmap.json",
+  "mixins": [
+    "client.ProjectileJoinWorldOwnerFixMixin"
+  ],
+  "client": [
+    "client.RecoilAttributeMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

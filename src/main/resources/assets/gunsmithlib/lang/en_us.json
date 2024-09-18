@@ -1,0 +1,10 @@
+{
+  "attribute.name.gunsmithlib.bullet_damage": "Bullet Damage",
+  "attribute.name.gunsmithlib.bullet_damage.desc": "Damage caused by gunshot (per shrapnel)",
+  "attribute.name.gunsmithlib.bullet_speed": "Bullet Speed",
+  "attribute.name.gunsmithlib.bullet_speed.desc": "Speed of bullets you shoot, m/tick",
+  "attribute.name.gunsmithlib.vert_recoil": "Vertical Recoil",
+  "attribute.name.gunsmithlib.vert_recoil.desc": "Scaling to Vertical Recoil",
+  "attribute.name.gunsmithlib.horz_recoil": "Horizontal Recoil",
+  "attribute.name.gunsmithlib.horz_recoil.desc": "Scaling to Horizontal Recoil"
+}
