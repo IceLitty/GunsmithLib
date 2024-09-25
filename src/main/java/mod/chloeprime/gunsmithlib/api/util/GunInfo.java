@@ -5,7 +5,10 @@ import com.tacz.guns.resource.index.CommonGunIndex;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 
-public record GunDescriptor(
+/**
+ * @see Gunsmith#getGunInfo(ItemStack)
+ */
+public record GunInfo(
         ItemStack gunStack,
         IGun gunItem,
         ResourceLocation gunId,
