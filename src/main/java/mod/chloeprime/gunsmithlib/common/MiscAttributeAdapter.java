@@ -4,7 +4,7 @@ import com.tacz.guns.api.TimelessAPI;
 import com.tacz.guns.api.event.common.EntityHurtByGunEvent;
 import com.tacz.guns.api.item.IGun;
 import com.tacz.guns.util.AttachmentDataUtils;
-import mod.chloeprime.gunsmithlib.common.util.DamageUtils;
+import mod.chloeprime.gunsmithlib.common.util.GsHelper;
 import mod.chloeprime.gunsmithlib.common.util.InternalBulletCreateEvent;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -34,7 +34,7 @@ public class MiscAttributeAdapter {
         }
         var attribute = BULLET_DAMAGE.get();
         var oldDamage = event.getBaseAmount();
-        var newDamage = DamageUtils.getAttributeValueWithBase(attacker, attribute, oldDamage);
+        var newDamage = GsHelper.getAttributeValueWithBase(attacker, attribute, oldDamage);
         event.setBaseAmount((float) newDamage);
     }
 
@@ -49,7 +49,7 @@ public class MiscAttributeAdapter {
         var oldMotion = bullet.getDeltaMovement();
         var attribute = BULLET_SPEED.get();
         var oldSpeed = oldMotion.length();
-        var newSpeed = DamageUtils.getAttributeValueWithBase(attacker, attribute, oldSpeed);
+        var newSpeed = GsHelper.getAttributeValueWithBase(attacker, attribute, oldSpeed);
         // 速度沒有被Attribute修改的情況
         if (Math.abs(newSpeed - oldSpeed) < 1e-4) {
             return;
