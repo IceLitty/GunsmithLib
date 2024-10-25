@@ -1,7 +1,7 @@
 package mod.chloeprime.gunsmithlib.common;
 
-import com.tacz.guns.api.item.IGun;
 import mod.chloeprime.gunsmithlib.api.common.BulletCreateEvent;
+import mod.chloeprime.gunsmithlib.api.util.Gunsmith;
 import mod.chloeprime.gunsmithlib.common.util.InternalBulletCreateEvent;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.Projectile;
@@ -31,8 +31,8 @@ public class BulletCreateEventDistributor {
             return;
         }
 
-        var gun = shooter.getMainHandItem();
-        if (IGun.getIGunOrNull(gun) == null) {
+        var gun = Gunsmith.getGunInfo(shooter.getMainHandItem()).orElse(null);
+        if (gun == null) {
             return;
         }
 
