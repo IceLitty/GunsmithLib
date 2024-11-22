@@ -6,5 +6,6 @@
   "attribute.name.gunsmithlib.vert_recoil": "Vertical Recoil",
   "attribute.name.gunsmithlib.vert_recoil.desc": "Scaling to Vertical Recoil",
   "attribute.name.gunsmithlib.horz_recoil": "Horizontal Recoil",
-  "attribute.name.gunsmithlib.horz_recoil.desc": "Scaling to Horizontal Recoil"
+  "attribute.name.gunsmithlib.horz_recoil.desc": "Scaling to Horizontal Recoil",
+  "effect.gunsmithlib.crossfire": "Crossfire"
 }

@@ -6,5 +6,6 @@
   "attribute.name.gunsmithlib.vert_recoil": "纵向后座",
   "attribute.name.gunsmithlib.vert_recoil.desc": "纵向的后座力",
   "attribute.name.gunsmithlib.horz_recoil": "横向后座",
-  "attribute.name.gunsmithlib.horz_recoil.desc": "横向的后座力"
+  "attribute.name.gunsmithlib.horz_recoil.desc": "横向的后座力",
+  "effect.gunsmithlib.crossfire": "交叉火力"
 }
