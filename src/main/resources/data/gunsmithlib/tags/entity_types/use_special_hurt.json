@@ -1,0 +1,57 @@
+{
+  "__comment__": "专业用户限定。请在查阅对应实体的源代码后再考虑使用本tag",
+  "replace": false,
+  "values": [
+    {
+      "id": "youkaishomecoming:shrine_maiden",
+      "required": false
+    },
+    {
+      "id": "youkaishomecoming:fairy",
+      "required": false
+    },
+    {
+      "id": "youkaishomecoming:yukari",
+      "required": false
+    },
+    {
+      "id": "youkaishomecoming:kochiya_sanae",
+      "required": false
+    },
+    {
+      "id": "youkaishomecoming:komeiji_koishi",
+      "required": false
+    },
+
+
+
+    {
+      "id": "grimoireofgaia:behender",
+      "required": false
+    },
+    {
+      "id": "grimoireofgaia:ender_dragon_girl",
+      "required": false
+    },
+    {
+      "id": "grimoireofgaia:ender_eye",
+      "required": false
+    },
+    {
+      "id": "grimoireofgaia:minotaur",
+      "required": false
+    },
+    {
+      "id": "grimoireofgaia:minotaurus",
+      "required": false
+    },
+    {
+      "id": "grimoireofgaia:sphinx",
+      "required": false
+    },
+    {
+      "id": "grimoireofgaia:valkyrie",
+      "required": false
+    }
+  ]
+}

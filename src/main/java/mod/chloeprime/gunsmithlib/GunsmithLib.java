@@ -27,8 +27,7 @@ import java.util.function.Consumer;
 public class GunsmithLib {
 
     public static final String MOD_ID = "gunsmithlib";
-
-    private static final Logger LOGGER = LogUtils.getLogger();
+    public static final Logger LOGGER = LogUtils.getLogger();
 
     @SuppressWarnings("removal")
     public GunsmithLib() {

@@ -5,6 +5,9 @@
   "compatibilityLevel": "JAVA_8",
   "refmap": "gunsmithlib.refmap.json",
   "mixins": [
+    "MixinBullet",
+    "MixinLivingEntity",
+    "MixinMob",
     "MixinReloadProcedure",
     "client.ProjectileJoinWorldOwnerFixMixin"
   ],
