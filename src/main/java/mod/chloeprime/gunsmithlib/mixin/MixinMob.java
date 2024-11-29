@@ -1,5 +1,6 @@
 package mod.chloeprime.gunsmithlib.mixin;
 
+import mod.chloeprime.gunsmithlib.Config;
 import mod.chloeprime.gunsmithlib.common.util.FloatConsumer;
 import mod.chloeprime.gunsmithlib.common.util.HurtFunction2;
 import mod.chloeprime.gunsmithlib.common.util.HurtFunction1;
@@ -17,7 +18,7 @@ public abstract class MixinMob extends LivingEntity implements SpecialHurtable {
     @Override
     public boolean gunsmith$usingSpecialHurt() {
         EntityType<?> type = getType();
-        return !UNSUPPORTED_TYPES.contains(type) && type.is(USE_SPECIAL_HURT);
+        return Config.ENABLE_SPECIAL_HURT.get() && !UNSUPPORTED_TYPES.contains(type) && type.is(USE_SPECIAL_HURT);
     }
 
     @Override

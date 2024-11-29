@@ -25,6 +25,7 @@ public interface SpecialHurtable {
             ), cause);
         }
     }
+
     boolean gunsmith$usingSpecialHurt();
     void gunsmith$beginSpecialHurt();
     void gunsmith$endSpecialHurt();
