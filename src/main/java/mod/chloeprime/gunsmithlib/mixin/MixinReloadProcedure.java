@@ -1,22 +1,33 @@
 package mod.chloeprime.gunsmithlib.mixin;
 
-import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
-import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import com.tacz.guns.api.item.gun.AbstractGunItem;
-import com.tacz.guns.entity.shooter.LivingEntityReload;
+import com.tacz.guns.item.ModernKineticGunScriptAPI;
 import mod.chloeprime.gunsmithlib.common.util.GsHooks;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@Mixin(value = LivingEntityReload.class, remap = false)
+@Mixin(value = ModernKineticGunScriptAPI.class, remap = false)
 public class MixinReloadProcedure {
-    @WrapOperation(
-            method = "tickReloadState",
-            at = @At(value = "INVOKE", target = "Lcom/tacz/guns/api/item/gun/AbstractGunItem;doReload(Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/item/ItemStack;Z)V")
-    )
-    private void postFeedEvents(AbstractGunItem gun, LivingEntity shooter, ItemStack gunItem, boolean loadBarrel, Operation<Void> original) {
-        GsHooks.onReloadFeed(gun, shooter, gunItem, loadBarrel, () -> original.call(gun, shooter, gunItem, loadBarrel));
+    @Shadow private ItemStack itemStack;
+    @Shadow private AbstractGunItem abstractGunItem;
+    @Shadow private LivingEntity shooter;
+
+    @Inject(
+            method = "consumeAmmoFromPlayer",
+            at = @At("HEAD"),
+            cancellable = true)
+    private void postFeedEvents(int amount, CallbackInfoReturnable<Integer> cir) {
+        var gun = this.itemStack;
+        var kun = this.abstractGunItem;
+        var shooter = this.shooter;
+        if (gun == null || kun == null || shooter == null) {
+            return;
+        }
+        GsHooks.onReloadFeed(kun, shooter, gun, !kun.hasBulletInBarrel(gun), () -> cir.setReturnValue(0));
     }
 }

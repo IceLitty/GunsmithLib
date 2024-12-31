@@ -17,6 +17,7 @@ plugins {
 
 apply plugin: 'org.spongepowered.mixin'
 
+mod_version = "${mod_version}+mc${minecraft_version}+tacz${tacz_version}"
 group = mod_group_id
 version = mod_version
 
@@ -145,12 +146,12 @@ repositories {
         url = "https://maven.theillusivec4.top/"
     }
 
-    // If you have mod jar dependencies in ./libs, you can declare them as a repository like so.
-    // See https://docs.gradle.org/current/userguide/declaring_repositories.html#sub:flat_dir_resolver
-    // flatDir {
-    //     dir 'libs'
-    // }
+    flatDir {
+        dir 'libs'
+    }
 }
+
+boolean USE_LOCAL_TACZ_V = Boolean.parseBoolean(USE_LOCAL_TACZ)
 
 dependencies {
     // Specify the version of Minecraft to use.
@@ -161,7 +162,11 @@ dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
 
     // TACZ
-    implementation fg.deobf('curse.maven:timeless-and-classics-zero-1028108:5722050-sources-5724527')
+    if (USE_LOCAL_TACZ_V) {
+        implementation fg.deobf('libs:tacz-1.20.1:pr-1.1.4-all');
+    } else {
+        implementation fg.deobf('curse.maven:timeless-and-classics-zero-1028108:5722050-sources-5724527')
+    }
 
     // MixinExtras
     compileOnly(annotationProcessor("io.github.llamalad7:mixinextras-common:0.4.1"))

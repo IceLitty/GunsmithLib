@@ -14,6 +14,7 @@ public class GunReloadFeedEvent extends LivingEvent {
         return gunInfo;
     }
 
+    @Deprecated(since = "tacz 1.1.4")
     public boolean willLoadBarrel() {
         return willLoadBarrel;
     }
