@@ -21,7 +21,7 @@ public class MixinReloadProcedure {
             method = "consumeAmmoFromPlayer",
             at = @At("HEAD"),
             cancellable = true)
-    private void postFeedEvents(int amount, CallbackInfoReturnable<Integer> cir) {
+    private void postFeedEvents(int neededAmount, CallbackInfoReturnable<Integer> cir) {
         var gun = this.itemStack;
         var kun = this.abstractGunItem;
         var shooter = this.shooter;

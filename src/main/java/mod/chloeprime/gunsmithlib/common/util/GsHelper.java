@@ -3,6 +3,7 @@ package mod.chloeprime.gunsmithlib.common.util;
 import com.tacz.guns.api.TimelessAPI;
 import com.tacz.guns.api.item.IGun;
 import mod.chloeprime.gunsmithlib.api.util.GunInfo;
+import net.minecraft.core.Holder;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.item.ItemStack;
@@ -15,8 +16,8 @@ public class GsHelper {
         return TimelessAPI.getCommonGunIndex(gunId).map(index -> new GunInfo(gunStack, gunItem, gunId, index));
     }
 
-    public static double getAttributeValueWithBase(LivingEntity holder, Attribute attribute, double newBase) {
-        var instance = holder.getAttribute(attribute);
+    public static double getAttributeValueWithBase(LivingEntity holder, Holder<Attribute> attributeHolder, double newBase) {
+        var instance = holder.getAttribute(attributeHolder);
         if (instance == null) {
             return newBase;
         }

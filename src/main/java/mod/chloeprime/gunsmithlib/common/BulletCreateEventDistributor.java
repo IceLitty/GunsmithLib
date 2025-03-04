@@ -5,14 +5,14 @@ import mod.chloeprime.gunsmithlib.api.util.Gunsmith;
 import mod.chloeprime.gunsmithlib.common.util.InternalBulletCreateEvent;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.Projectile;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.entity.EntityJoinLevelEvent;
-import net.minecraftforge.eventbus.api.EventPriority;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.common.NeoForge;
+import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
+import net.neoforged.bus.api.EventPriority;
+import net.neoforged.bus.api.SubscribeEvent;
 import org.jetbrains.annotations.ApiStatus;
 
-@Mod.EventBusSubscriber
+@EventBusSubscriber
 public class BulletCreateEventDistributor {
     @SubscribeEvent(priority = EventPriority.LOWEST)
     public static void onBulletCreate(EntityJoinLevelEvent event) {
@@ -37,7 +37,7 @@ public class BulletCreateEventDistributor {
         }
 
         var bcEvent = new BulletCreateEvent(bullet, shooter, gun);
-        MinecraftForge.EVENT_BUS.post(bcEvent);
-        MinecraftForge.EVENT_BUS.post(new InternalBulletCreateEvent(bcEvent));
+        NeoForge.EVENT_BUS.post(bcEvent);
+        NeoForge.EVENT_BUS.post(new InternalBulletCreateEvent(bcEvent));
     }
 }

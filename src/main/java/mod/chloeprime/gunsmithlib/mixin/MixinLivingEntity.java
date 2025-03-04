@@ -16,7 +16,7 @@ import org.spongepowered.asm.mixin.injection.At;
 
 @Mixin(LivingEntity.class)
 public abstract class MixinLivingEntity implements SpecialHurtable {
-    @Shadow public abstract void setHealth(float p_21154_);
+    @Shadow public abstract void setHealth(float health);
 
     private @Unique boolean gunsmith$isDoingSpecialHurtProcedure;
 
@@ -75,6 +75,6 @@ public abstract class MixinLivingEntity implements SpecialHurtable {
         gunsmith$isDoingSpecialHurtProcedure = false;
     }
 
-    @Shadow public abstract boolean hurt(@NotNull DamageSource p_21016_, float p_21017_);
-    @Shadow protected abstract void actuallyHurt(DamageSource p_21240_, float p_21241_);
+    @Shadow public abstract boolean hurt(@NotNull DamageSource source, float amount);
+    @Shadow protected abstract void actuallyHurt(DamageSource damageSource, float damageAmount);
 }

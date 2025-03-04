@@ -8,8 +8,7 @@
     "MixinBullet",
     "MixinLivingEntity",
     "MixinMob",
-    "MixinReloadProcedure",
-    "client.ProjectileJoinWorldOwnerFixMixin"
+    "MixinReloadProcedure"
   ],
   "client": [
     "client.RecoilAttributeMixin"

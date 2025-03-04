@@ -5,8 +5,8 @@ import com.mojang.math.Axis;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.Mth;
 import net.minecraft.world.phys.Vec3;
-import net.minecraftforge.fml.LogicalSide;
-import net.minecraftforge.fml.loading.FMLLoader;
+import net.neoforged.fml.LogicalSide;
+import net.neoforged.fml.loading.FMLLoader;
 import org.joml.Matrix4f;
 import org.joml.Vector3f;
 import org.joml.Vector4f;
@@ -21,7 +21,7 @@ class ClientProxyImpl {
             return original;
         }
 
-        var pPartialTicks = MC.getPartialTick();
+        var pPartialTicks = MC.getTimer().getGameTimeDeltaPartialTick(false);
         float f = player.walkDist - player.walkDistO;
         float f1 = -(player.walkDist + f * pPartialTicks);
         float f2 = Mth.lerp(pPartialTicks, player.oBob, player.bob);

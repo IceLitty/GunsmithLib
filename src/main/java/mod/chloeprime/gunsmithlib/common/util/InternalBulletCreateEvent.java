@@ -1,7 +1,7 @@
 package mod.chloeprime.gunsmithlib.common.util;
 
 import mod.chloeprime.gunsmithlib.api.common.BulletCreateEvent;
-import net.minecraftforge.eventbus.api.Event;
+import net.neoforged.bus.api.Event;
 
 public final class InternalBulletCreateEvent extends Event {
     public InternalBulletCreateEvent(BulletCreateEvent impl) {
